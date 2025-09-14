@@ -1,91 +1,375 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siva Kumar T - Profile</title>
+    <title>Interactive Resume - Siva Kumar Tukanti</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Calm Harmony -->
+    <!-- Application Structure Plan: The SPA is designed as an interactive dashboard to give recruiters a quick, high-level overview and deep-dive capabilities. The structure consists of a header with a professional summary, a sticky navigation for easy access, a visual dashboard with a skills radar chart and key metrics, an interactive timeline for career exploration, a tabbed interface for skills, and a section for credentials. This non-linear, thematic structure was chosen over a traditional list to allow users to quickly find the information most relevant to them, making the experience more efficient and engaging. User flow starts broad (summary/dashboard) and allows for targeted exploration (timeline details, specific skill sets). -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Overall Expertise -> Goal: Inform -> Viz: Radar Chart -> Interaction: Hover -> Justification: Provides a quick, holistic view of core competency distribution, more engaging than a list. -> Library: Chart.js
+        - Report Info: Years of Experience, Key Achievement (40% cycle reduction) -> Goal: Inform/Impact -> Viz: Key Metric Cards -> Interaction: Hover effect -> Justification: Highlights critical, scannable data points for recruiters immediately. -> Library/Method: HTML/Tailwind
+        - Report Info: Professional Experience -> Goal: Explore/Compare -> Viz: Interactive Vertical Timeline -> Interaction: Click to reveal details -> Justification: Transforms a long, linear list into an engaging, user-controlled exploration tool, preventing content overload. -> Library/Method: HTML/Tailwind/JS
+        - Report Info: Core Skills List -> Goal: Organize/Inform -> Viz: Tabbed Interface with Skill Tags -> Interaction: Click tabs to filter -> Justification: Organizes a large number of skills into logical, manageable categories, improving scannability. -> Library/Method: HTML/Tailwind/JS
+        - Report Info: Education & Certs -> Goal: Inform -> Viz: Clean two-column layout -> Interaction: None -> Justification: Simple, clear presentation of foundational qualifications. -> Library/Method: HTML/Tailwind
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            margin: 0;
-            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: #F9FAFB;
+            color: #111827;
         }
-        header, section, footer {
-            padding: 20px;
-            margin: 20px;
-            background: #f4f4f4;
-            border-radius: 10px;
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 40vh;
+            max-height: 400px;
+            width: 100%;
+            max-width: 450px;
         }
-        header {
-            text-align: center;
-            background: #2d89ef;
-            color: #fff;
+        .nav-link {
+            transition: color 0.3s ease, border-color 0.3s ease;
         }
-        header h1 {
-            margin: 0;
+        .timeline-item-content {
+            transition: all 0.3s ease-in-out;
         }
-        nav {
-            text-align: center;
-            margin: 10px 0;
+        .tab-content {
+            display: none;
         }
-        nav a {
-            margin: 0 10px;
-            text-decoration: none;
-            color: #2d89ef;
+        .tab-content.active {
+            display: block;
         }
-        section h2 {
-            color: #2d89ef;
+         .tab-button.active {
+            border-color: #3B82F6;
+            color: #3B82F6;
+            background-color: #EFF6FF;
         }
     </style>
 </head>
-<body>
-    <header>
-        <h1>Siva Kumar T</h1>
-        <p>Engineering Manager | Architect | Scrum Master</p>
+<body class="antialiased">
+
+    <header id="navbar" class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold text-gray-800">Siva Kumar Tukanti</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#overview" class="nav-link text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Overview</a>
+                        <a href="#experience" class="nav-link text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Experience</a>
+                        <a href="#skills" class="nav-link text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                        <a href="#education" class="nav-link text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Education & Certs</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
     </header>
-    <nav>
-        <a href="#about">About Me</a>
-        <a href="#expertise">Professional Expertise</a>
-        <a href="#philosophy">Personal Philosophy</a>
-    </nav>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>
-            I am Siva Kumar T, an accomplished Engineering Manager and Architect with over 14 years of experience in conceptualizing, designing, and coding technical solutions using Java/J2EE technology stacks. My career has been marked by a commitment to excellence in software engineering and a passion for leading teams to deliver high-quality, scalable solutions.
-        </p>
-    </section>
-    <section id="expertise">
-        <h2>Professional Expertise</h2>
-        <h3>Engineering Management & Architecture</h3>
-        <p>
-            Extensive experience in leading engineering teams, driving technical projects, and architecting robust solutions across diverse industries. Proficient in microservices design and implementation, ensuring systems are modular, scalable, and maintainable.
-        </p>
-        <h3>Agile and DevOps Practices</h3>
-        <p>
-            Certified Scrum Master (CSM) by Scrum Alliance with deep expertise in implementing and optimizing Scrum Frameworks to enhance team productivity and project outcomes. Highly skilled in designing and implementing fully automated Continuous Integration (CI), Continuous Delivery (CD), and DevOps processes tailored for agile projects, significantly reducing deployment cycles and improving software quality.
-        </p>
-        <h3>Development Methodologies</h3>
-        <p>
-            Strong advocate for Test-Driven Development (TDD) and Behavior-Driven Development (BDD), promoting rigorous testing standards to ensure high-quality code and efficient defect management. Experienced in working with Agile, Waterfall, and hybrid methodologies, adapting processes to meet project-specific requirements and team dynamics.
-        </p>
-        <h3>Cloud and Infrastructure</h3>
-        <p>
-            Proficient in Amazon Web Services (AWS) with hands-on experience in leveraging cloud services for scalable and resilient application deployment. Knowledgeable in Microsoft Azure, Google Cloud Platform (GCP), and Red Hat OpenShift, enabling versatile cloud strategy and implementation. Sound understanding of TOGAF 9.2 Standard framework for Enterprise Architecture, facilitating structured and strategic IT architecture development.
-        </p>
-    </section>
-    <section id="philosophy">
-        <h2>Personal Philosophy</h2>
-        <p>
-            Throughout my career, I have been driven by a desire to foster innovation, promote collaboration, and deliver exceptional results. I believe in continuous learning and staying abreast of emerging technologies and industry trends to ensure that the solutions I design are not only current but also future-proof.
-        </p>
-        <p>
-            By leveraging my technical expertise, leadership skills, and dedication to agile principles, I aim to create environments where teams can thrive and deliver outstanding products that meet and exceed stakeholder expectations.
-        </p>
-    </section>
-    <footer>
-        <p>&copy; 2024 Siva Kumar T. All rights reserved.</p>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+
+        <section id="hero" class="text-center mb-16">
+            <h2 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
+                <span class="block">Engineering Manager &</span>
+                <span class="block text-blue-600">Enterprise Architect</span>
+            </h2>
+            <p class="mt-6 max-w-2xl mx-auto text-lg text-gray-600">
+                Engineering Manager / Architect with 14+ years of experience in designing and delivering enterprise-scale software solutions. Adept at Java/J2EE, microservices, and cloud-native architectures, with expertise in Agile/DevOps methodologies. Recognized for driving innovation, improving efficiency, and delivering high-value business outcomes.
+            </p>
+        </section>
+
+        <section id="overview" class="mb-16 scroll-mt-20">
+            <h3 class="text-3xl font-bold text-center text-gray-800 mb-12">Professional Overview</h3>
+             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="grid grid-cols-2 gap-6 text-center">
+                    <div class="bg-white p-6 rounded-xl shadow-md transition-transform hover:scale-105">
+                        <div class="text-blue-600 text-4xl font-bold">14+</div>
+                        <p class="text-gray-600 mt-2">Years of Experience</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md transition-transform hover:scale-105">
+                        <div class="text-blue-600 text-4xl font-bold">CSM</div>
+                        <p class="text-gray-600 mt-2">Certified Scrum Master</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md transition-transform hover:scale-105">
+                        <div class="text-blue-600 text-4xl font-bold">3</div>
+                        <p class="text-gray-600 mt-2">Major Cloud Platforms</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md transition-transform hover:scale-105">
+                        <div class="text-blue-600 text-4xl font-bold">40%</div>
+                        <p class="text-gray-600 mt-2">Release Cycle Reduction</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <h4 class="text-xl font-semibold text-center mb-4 text-gray-700">Core Competencies</h4>
+                    <div class="chart-container">
+                        <canvas id="skillsRadarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="mb-16 scroll-mt-20">
+            <h3 class="text-3xl font-bold text-center text-gray-800 mb-12">Career Timeline</h3>
+            <div class="relative max-w-4xl mx-auto">
+                <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-300"></div>
+                <div id="timeline-container" class="space-y-12">
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="mb-16 scroll-mt-20">
+            <h3 class="text-3xl font-bold text-center text-gray-800 mb-12">Technical Skills</h3>
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-md p-6">
+                <div id="tabs-container" class="flex flex-wrap justify-center border-b border-gray-200 mb-6">
+                </div>
+                <div id="tabs-content-container">
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="scroll-mt-20">
+            <h3 class="text-3xl font-bold text-center text-gray-800 mb-12">Education & Certifications</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <h4 class="text-xl font-semibold text-gray-800 border-b pb-2 mb-4">🎓 Education</h4>
+                    <p class="font-bold text-lg text-blue-600">Master of Computer Applications (MCA)</p>
+                    <p class="text-gray-600">Sri Venkateswara University, 2008</p>
+                    <p class="text-gray-500 text-sm">Aggregate: 72%</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-md">
+                    <h4 class="text-xl font-semibold text-gray-800 border-b pb-2 mb-4">🏆 Certifications & Honors</h4>
+                    <ul class="space-y-3">
+                        <li class="text-gray-700">Certified Scrum Master (CSM) – Scrum Alliance</li>
+                        <li class="text-gray-700">Oracle Certified Java Professional Programmer (OCJP)</li>
+                        <li class="text-gray-700">Polaris Spot Excellence Award</li>
+                        <li class="text-gray-700">Training: Big Data & JBPM/Drools</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="container mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 Siva Kumar Tukanti</p>
+            <p class="text-gray-400 mt-1">sivakumar.tukanti@gmail.com | +971 551218341</p>
+        </div>
     </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const professionalExperience = [
+            {
+                company: "Seera Group, Dubai",
+                role: "Senior Technical Manager / Architect",
+                duration: "July 2019 – Present",
+                points: [
+                    "Lead architecture, design, and delivery of Property Management System (C2C marketplace) for private property rentals.",
+                    "Defined system architecture with Spring Boot microservices, AWS cloud, Kubernetes orchestration, and Kafka event streaming.",
+                    "Guided frontend development using ReactJS and implemented data solutions with PostgreSQL and MongoDB.",
+                    "Championed DevOps pipelines ensuring CI/CD automation, reducing release cycles by 40%.",
+                    "Managed and mentored engineering teams, aligning delivery with business roadmaps."
+                ],
+                technologies: ["Java", "Spring Boot", "AWS", "Kubernetes", "Kafka", "ReactJS", "Redis", "PostgreSQL", "MongoDB"]
+            },
+            {
+                company: "Emirates Group Technology Center (EGTC), Dubai",
+                role: "Full Stack Analyst / Scrum Master",
+                duration: "July 2015 – July 2019",
+                points: [
+                    "Developed and supported aviation mobility solutions in an Agile/Scrum environment (Dnata Mobility – AACS).",
+                    "Built Android native apps for device tracking and real-time data sync with backend systems.",
+                    "Designed and consumed REST/SOAP APIs, improving interoperability across aviation workflows.",
+                    "Boosted performance with multithreading and caching strategies.",
+                    "Implemented JBPM workflows and Drools-based rules for safety and compliance management (SiD).",
+                    "Delivered scalable aviation safety solutions using Spring, JPA, Richfaces, and Jasper Reports."
+                ],
+                technologies: ["Java 8", "AngularJS", "Spring", "Hibernate", "JBoss", "NodeJS", "JUnit", "Karma", "TIBCO", "JBPM", "Drools"]
+            },
+            {
+                company: "Computer Science Corporation (CSC), Dubai",
+                role: "Programming Analyst",
+                duration: "June 2011 – July 2015",
+                points: [
+                    "Designed and delivered modules for various aviation systems including Trip Management and safety data systems.",
+                    "Utilized Spring MVC, Hibernate, and SOA architecture to build robust backend services.",
+                    "Enhanced project quality through Test-Driven Development (TDD) practices with JUnit and Mockito."
+                ],
+                technologies: ["Java", "Spring MVC", "Hibernate", "SOA", "JUnit", "Mockito", "Richfaces", "JPA"]
+            },
+            {
+                company: "Polaris Software Lab Ltd., Chennai",
+                role: "Senior Software Engineer",
+                duration: "Dec 2009 – May 2011",
+                points: [
+                    "Designed architecture for parameterized modules for a Public Sector Collection Utility for CitiBank, UK.",
+                    "Ensured modular extensibility and maintainability of the codebase.",
+                    "Implemented persistence with Hibernate DAO support and transaction management via Spring."
+                ],
+                technologies: ["Java", "Spring", "Hibernate", "DAO", "J2EE"]
+            },
+            {
+                company: "Precision Informatics, Chennai",
+                role: "Software Engineer",
+                duration: "Oct 2008 – Jul 2009",
+                points: [
+                    "Developed enterprise applications with Java, Spring, and JSF.",
+                    "Contributed to design and coding in multi-tier distributed systems, gaining foundational experience."
+                ],
+                technologies: ["Java", "Spring", "JSF", "J2EE"]
+            }
+        ];
+
+        const skillsData = {
+            "Languages & Frameworks": ["Java", "Spring Boot", "Hibernate", "NodeJS", "ReactJS", "AngularJS", "React Native", "JSP", "JSTL"],
+            "Cloud & DevOps": ["AWS", "GCP", "Azure", "OpenShift", "Docker", "Kubernetes", "Jenkins", "TeamCity"],
+            "Databases & Messaging": ["Oracle", "PostgreSQL", "MySQL", "MongoDB", "Neo4J", "Hadoop", "Apache Kafka", "RabbitMQ", "ActiveMQ"],
+            "Architecture & Methodologies": ["Agile (Scrum)", "TDD", "BDD", "DevOps", "Waterfall", "TOGAF 9.2", "Microservices"]
+        };
+
+
+        const radarCtx = document.getElementById('skillsRadarChart').getContext('2d');
+        const skillsRadarChart = new Chart(radarCtx, {
+            type: 'radar',
+            data: {
+                labels: ['Architecture', 'Java Ecosystem', 'Cloud & DevOps', 'Leadership', 'Frontend', 'Databases'],
+                datasets: [{
+                    label: 'Proficiency',
+                    data: [9, 9, 8, 9, 7, 8],
+                    backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                    borderColor: 'rgba(59, 130, 246, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(59, 130, 246, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(59, 130, 246, 1)'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
+                        grid: { color: 'rgba(0, 0, 0, 0.1)' },
+                        pointLabels: { font: { size: 12 }, color: '#4B5563' },
+                        ticks: {
+                            backdropColor: 'transparent',
+                            stepSize: 2,
+                            font: { size: 10 },
+                            color: '#6B7280'
+                        },
+                        min: 0,
+                        max: 10
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+        
+        const timelineContainer = document.getElementById('timeline-container');
+        professionalExperience.forEach((job, index) => {
+            const isLeft = index % 2 === 0;
+            const timelineItem = document.createElement('div');
+            timelineItem.className = `relative flex items-center ${isLeft ? 'justify-start' : 'justify-end'}`;
+
+            const content = `
+                <div class="absolute w-4 h-4 bg-blue-500 rounded-full left-1/2 transform -translate-x-1/2 -translate-y-4 sm:translate-y-0"></div>
+                <div class="w-full md:w-1/2 ${isLeft ? 'pr-8' : 'pl-8'}">
+                    <div id="job-${index}" data-job-index="${index}" class="timeline-item-content cursor-pointer bg-white p-6 rounded-xl shadow-md border-2 border-transparent hover:border-blue-500 transition-all">
+                        <p class="text-sm text-gray-500">${job.duration}</p>
+                        <h4 class="font-bold text-lg text-gray-800">${job.role}</h4>
+                        <p class="text-md text-gray-600">${job.company}</p>
+                        <div class="details mt-4 max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                            <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                ${job.points.map(p => `<li>${p}</li>`).join('')}
+                            </ul>
+                            <div class="mt-4">
+                                <h5 class="font-semibold mb-2 text-gray-700">Key Technologies:</h5>
+                                <div class="flex flex-wrap gap-2">
+                                    ${job.technologies.map(t => `<span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">${t}</span>`).join('')}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            timelineItem.innerHTML = content;
+            timelineContainer.appendChild(timelineItem);
+        });
+
+        timelineContainer.addEventListener('click', (e) => {
+            const item = e.target.closest('.timeline-item-content');
+            if (item) {
+                const details = item.querySelector('.details');
+                const allDetails = document.querySelectorAll('.details');
+                const allItems = document.querySelectorAll('.timeline-item-content');
+
+                const isOpening = !details.style.maxHeight || details.style.maxHeight === '0px';
+
+                allItems.forEach(i => {
+                    i.classList.remove('border-blue-500');
+                    i.classList.add('border-transparent');
+                });
+                allDetails.forEach(d => d.style.maxHeight = '0px');
+
+                if (isOpening) {
+                    item.classList.add('border-blue-500');
+                    item.classList.remove('border-transparent');
+                    details.style.maxHeight = details.scrollHeight + 'px';
+                }
+            }
+        });
+
+        const tabsContainer = document.getElementById('tabs-container');
+        const tabsContentContainer = document.getElementById('tabs-content-container');
+        Object.keys(skillsData).forEach((category, index) => {
+            const button = document.createElement('button');
+            button.className = `tab-button text-sm font-medium py-2 px-4 border-b-2 transition-colors duration-300 ${index === 0 ? 'active' : 'border-transparent text-gray-500 hover:text-gray-700'}`;
+            button.textContent = category;
+            button.dataset.tab = category.replace(/ & /g, '-');
+            tabsContainer.appendChild(button);
+
+            const contentDiv = document.createElement('div');
+            contentDiv.id = category.replace(/ & /g, '-');
+            contentDiv.className = `tab-content p-4 ${index === 0 ? 'active' : ''}`;
+            const skillsHtml = skillsData[category].map(skill => `<span class="bg-gray-200 text-gray-800 text-sm font-medium m-1 px-3 py-1 rounded-full inline-block">${skill}</span>`).join('');
+            contentDiv.innerHTML = `<div class="flex flex-wrap justify-center">${skillsHtml}</div>`;
+            tabsContentContainer.appendChild(contentDiv);
+        });
+
+        tabsContainer.addEventListener('click', e => {
+            if (e.target.classList.contains('tab-button')) {
+                const tabId = e.target.dataset.tab;
+                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                e.target.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            }
+        });
+        
+        const navLinks = document.querySelectorAll('a[href^="#"]');
+        navLinks.forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    });
+</script>
+
 </body>
 </html>
