@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Commitapps | Enterprise Architecture & Software Solutions",
-  description: "We design, architect, and build industry-standard enterprise applications.",
+  title: "Commitapps | Fractional CTO & Enterprise Architecture Consulting",
+  description: "Premium Fractional CTO and Enterprise Architecture consulting. We help startups design highly scalable architectures without the massive full-time executive salary.",
 };
 
 export default function RootLayout({
