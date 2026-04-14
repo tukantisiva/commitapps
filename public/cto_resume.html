@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siva Kumar Tukanti | Chief Technology Officer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #09090b; /* Zinc 950 */
+            color: #fafafa; /* Zinc 50 */
+        }
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 40vh;
+            max-height: 400px;
+            width: 100%;
+            max-width: 450px;
+        }
+        .nav-link {
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+        .timeline-item-content {
+            transition: all 0.3s ease-in-out;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+         .tab-button.active {
+            border-color: #3B82F6;
+            color: #3B82F6;
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header id="navbar" class="sticky top-0 z-50 bg-zinc-950/80 backdrop-blur-md shadow-sm border-b border-zinc-800">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <h1 class="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+                        <div class="w-4 h-4 bg-blue-500 rounded-sm inline-block"></div>
+                        Siva Kumar <span class="text-blue-500">Tukanti</span>
+                    </h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#overview" class="nav-link text-zinc-400 hover:text-white px-3 py-2 text-sm font-medium">Executive Overview</a>
+                        <a href="#experience" class="nav-link text-zinc-400 hover:text-white px-3 py-2 text-sm font-medium">Strategic Timeline</a>
+                        <a href="#skills" class="nav-link text-zinc-400 hover:text-white px-3 py-2 text-sm font-medium">Capabilities</a>
+                        <a href="mailto:tsk.java@gmail.com" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-500 transition-colors ml-4">Engage</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 max-w-7xl">
+
+        <section id="hero" class="text-center mb-24 relative">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+            <h2 class="text-5xl font-extrabold tracking-tighter text-white sm:text-6xl md:text-7xl relative z-10">
+                <span class="block text-zinc-400 text-3xl sm:text-4xl md:text-5xl mb-4 font-semibold tracking-tight">Chief Technology Officer</span>
+                <span class="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 leading-tight">Vision. Architecture. Execution.</span>
+            </h2>
+            <p class="mt-8 max-w-3xl mx-auto text-xl text-zinc-400 leading-relaxed relative z-10">
+                Dynamic technology executive with 14+ years of experience aligning deep technical architecture with high-impact business strategies. Proven track record of scaling global remote engineering teams, owning multi-million dollar cloud infrastructure budgets, and spearheading enterprise digital transformations for companies like Seera Group and Emirates.
+            </p>
+        </section>
+
+        <section id="overview" class="mb-32 scroll-mt-24">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="grid grid-cols-2 gap-4 text-center">
+                    <div class="bg-zinc-900 border border-zinc-800 p-8 rounded-2xl shadow-xl transition-all hover:bg-zinc-800">
+                        <div class="text-blue-500 text-5xl font-bold mb-2">14+</div>
+                        <p class="text-zinc-400 text-sm font-medium uppercase tracking-wider">Years Leadership</p>
+                    </div>
+                    <div class="bg-zinc-900 border border-zinc-800 p-8 rounded-2xl shadow-xl transition-all hover:bg-zinc-800">
+                        <div class="text-purple-500 text-5xl font-bold mb-2">$M+</div>
+                        <p class="text-zinc-400 text-sm font-medium uppercase tracking-wider">Cloud FinOps</p>
+                    </div>
+                    <div class="bg-zinc-900 border border-zinc-800 p-8 rounded-2xl shadow-xl transition-all hover:bg-zinc-800">
+                        <div class="text-emerald-500 text-5xl font-bold mb-2">40%</div>
+                        <p class="text-zinc-400 text-sm font-medium uppercase tracking-wider">Velocity Increase</p>
+                    </div>
+                    <div class="bg-zinc-900 border border-zinc-800 p-8 rounded-2xl shadow-xl transition-all hover:bg-zinc-800">
+                        <div class="text-pink-500 text-5xl font-bold mb-2">Global</div>
+                        <p class="text-zinc-400 text-sm font-medium uppercase tracking-wider">Team Scaling</p>
+                    </div>
+                </div>
+                <div class="bg-zinc-900 border border-zinc-800 p-8 rounded-2xl shadow-xl">
+                    <h4 class="text-xl font-bold text-white mb-6 text-center">Executive Intelligence Radar</h4>
+                    <div class="chart-container">
+                        <canvas id="skillsRadarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="mb-32 scroll-mt-24">
+            <h3 class="text-4xl font-bold text-center text-white mb-16 tracking-tight">Strategic Timeline & Impact</h3>
+            <div class="relative max-w-5xl mx-auto">
+                <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-px bg-zinc-800"></div>
+                <div id="timeline-container" class="space-y-16">
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="mb-32 scroll-mt-24">
+            <div class="max-w-5xl mx-auto bg-zinc-900 border border-zinc-800 rounded-3xl shadow-2xl p-8 md:p-12">
+                <h3 class="text-3xl font-bold text-center text-white mb-8 tracking-tight">Executive Capabilities</h3>
+                <div id="tabs-container" class="flex flex-wrap justify-center border-b border-zinc-800 mb-8">
+                </div>
+                <div id="tabs-content-container">
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="scroll-mt-24 pb-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="bg-zinc-900 border border-zinc-800 p-8 rounded-3xl shadow-xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-8 text-blue-500/10">
+                        <svg class="w-24 h-24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72l5 2.73 5-2.73v3.72z"/></svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-white border-b border-zinc-800 pb-4 mb-6 relative z-10">Foundation</h4>
+                    <p class="font-bold text-xl text-blue-400 relative z-10">Master of Computer Applications (MCA)</p>
+                    <p class="text-zinc-400 mt-2 relative z-10">Sri Venkateswara University, 2008</p>
+                </div>
+                 <div class="bg-zinc-900 border border-zinc-800 p-8 rounded-3xl shadow-xl">
+                    <h4 class="text-xl font-bold text-white border-b border-zinc-800 pb-4 mb-6">Certifications & Frameworks</h4>
+                    <ul class="space-y-4">
+                        <li class="text-zinc-300 flex items-center gap-3">
+                            <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                            Certified Scrum Master (CSM) – Scrum Alliance
+                        </li>
+                        <li class="text-zinc-300 flex items-center gap-3">
+                            <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                            Oracle Certified Java Professional Programmer (OCJP)
+                        </li>
+                        <li class="text-zinc-300 flex items-center gap-3">
+                            <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+                            TOGAF Enterprise Architecture Methodologies
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-zinc-950 border-t border-zinc-900 text-white mt-16">
+        <div class="container mx-auto py-12 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4">
+            <div>
+                <p class="font-bold text-lg">Siva Kumar Tukanti</p>
+                <p class="text-zinc-500 text-sm mt-1">Chief Technology Officer / Enterprise Architect</p>
+            </div>
+            <div class="flex gap-6 text-sm text-zinc-400">
+                <a href="mailto:tsk.java@gmail.com" class="hover:text-blue-400 transition-colors">tsk.java@gmail.com</a>
+                <span class="text-zinc-700">|</span>
+                <a href="https://linkedin.com/in/sivakumartukanti" target="_blank" class="hover:text-blue-400 transition-colors">LinkedIn Profile</a>
+            </div>
+        </div>
+    </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const professionalExperience = [
+            {
+                company: "Seera Group, Dubai",
+                role: "Senior Engineering Leader & Chief Architect",
+                duration: "July 2019 – Present",
+                points: [
+                    "Spearheaded the technical vision, architectural roadmap, and engineering culture for a high-volume Property Management System (C2C marketplace).",
+                    "Scaled and mentored cross-functional engineering teams, aligning technical deliverables strictly with overarching business objectives and revenue milestones.",
+                    "Architected robust, cloud-native microservices on AWS/Kubernetes, significantly improving system fault-tolerance and horizontal scaling capabilities during peak traffic.",
+                    "Championed modern DevOps methodologies and CI/CD automation pipelines, driving a 40% reduction in release cycles and accelerating speed-to-market.",
+                    "Controlled technology budgets and infrastructure CapEx/OpEx, optimizing database structures (PostgreSQL/MongoDB) and Kafka streaming components for maximum efficiency."
+                ],
+                technologies: ["Tech Strategy", "Kubernetes", "AWS FinOps", "Microservices", "Team Scaling", "Kafka", "Data Engineering"]
+            },
+            {
+                company: "Emirates Group (EGTC), Dubai",
+                role: "Full Stack Analyst / Scrum Master",
+                duration: "July 2015 – July 2019",
+                points: [
+                    "Led the technical execution and delivery of mission-critical aviation mobility solutions (Dnata Mobility – AACS) within a stringent Agile/Scrum environment.",
+                    "Drove enterprise interoperability by engineering highly secure REST/SOAP APIs integrating with massive legacy aviation mainframes and logic systems.",
+                    "Introduced deep performance optimization strategies combining multithreading, advanced Node.js caching layers, and database query re-structuring.",
+                    "Automated heavy regulatory compliance processes via JBPM workflows and Drools-based business rules engines, directly mitigating aviation safety risks."
+                ],
+                technologies: ["Agile/Scrum", "Systems Interoperability", "Performance Tuning", "NodeJS", "Compliance Architecture"]
+            },
+            {
+                company: "Computer Science Corporation (CSC), Dubai",
+                role: "Programming Analyst",
+                duration: "June 2011 – July 2015",
+                points: [
+                    "Engineered core logic modules for complex aviation systems across Trip Management and safety data domains.",
+                    "Advocated for and established organizational Test-Driven Development (TDD) philosophies utilizing JUnit/Mockito, enforcing code quality guardrails.",
+                    "Refactored monolithic service layers into scalable SOA (Service Oriented Architecture) endpoints using Spring MVC."
+                ],
+                technologies: ["TDD", "SOA Architecture", "Code Quality", "Spring Ecosystem"]
+            },
+            {
+                company: "Polaris Software Lab Ltd., Chennai",
+                role: "Senior Software Engineer",
+                duration: "Dec 2009 – May 2011",
+                points: [
+                    "Designed highly parameterized, extensible data processing modules for a Public Sector Collection Utility interfacing natively with CitiBank UK.",
+                    "Managed critical transaction lifecycles and persistence mechanisms, ensuring zero data loss across high-stakes financial operations."
+                ],
+                technologies: ["Financial Tech", "Data Persistence", "Extensible Design"]
+            }
+        ];
+
+        const skillsData = {
+            "Executive Leadership": ["Technical Vision & Strategy", "Team Scaling & Mentorship", "Agile Transformation", "Vendor & Cost Negotiation", "Cloud FinOps", "C-Suite Communication", "Cross-functional Alignment"],
+            "Architectural Mastery": ["Microservices Strategy", "Event-Driven Architecture", "Domain-Driven Design", "High Availability / Disaster Recovery", "Serverless Paradigms", "Zero-Trust Security Models"],
+            "Cloud & DevOps Strategy": ["AWS / GCP Lifecycle Management", "Kubernetes Orchestration", "CI/CD Pipeline Automation", "Infrastructure as Code (IaC)", "Containerization Paradigm"],
+            "Engineering Core": ["Java / Spring Ecosystem", "ReactJS / Node.js Modernization", "SQL / NoSQL (MongoDB, Postgres)", "Kafka Streaming", "TDD & Code Quality Governance"]
+        };
+
+
+        const radarCtx = document.getElementById('skillsRadarChart').getContext('2d');
+        const skillsRadarChart = new Chart(radarCtx, {
+            type: 'radar',
+            data: {
+                labels: ['Tech Vision', 'Business Acumen', 'Cloud/DevOps', 'App Architecture', 'Team Leadership', 'Security/Compliance'],
+                datasets: [{
+                    label: 'Executive Capability',
+                    data: [10, 8, 9, 10, 9, 8],
+                    backgroundColor: 'rgba(59, 130, 246, 0.15)',
+                    borderColor: 'rgba(59, 130, 246, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#09090b',
+                    pointBorderColor: 'rgba(59, 130, 246, 1)',
+                    pointHoverBackgroundColor: 'rgba(59, 130, 246, 1)',
+                    pointHoverBorderColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(255, 255, 255, 0.1)' },
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                        pointLabels: { font: { size: 12, family: 'Inter' }, color: '#a1a1aa' },
+                        ticks: {
+                            display: false,
+                            min: 0,
+                            max: 10
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+        
+        const timelineContainer = document.getElementById('timeline-container');
+        professionalExperience.forEach((job, index) => {
+            const isLeft = index % 2 === 0;
+            const timelineItem = document.createElement('div');
+            timelineItem.className = `relative flex items-center ${isLeft ? 'justify-start' : 'justify-end'} z-10 w-full`;
+
+            // Mobile fallback logic: On small screens, force everything to act like left-aligned
+            const content = `
+                <div class="absolute w-5 h-5 bg-zinc-950 border-4 border-blue-500 rounded-full left-1/2 transform -translate-x-1/2 -translate-y-4 sm:translate-y-0 z-20 shadow-[0_0_15px_rgba(59,130,246,0.6)] hidden md:block"></div>
+                <div class="w-full md:w-1/2 ${isLeft ? 'md:pr-12' : 'md:pl-12'} p-4 md:p-0">
+                    <div id="job-${index}" data-job-index="${index}" class="timeline-item-content cursor-pointer bg-zinc-900 p-8 rounded-3xl border border-zinc-800 hover:border-blue-500/50 hover:bg-zinc-800/80 transition-all shadow-xl group">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 gap-2">
+                            <h4 class="font-extrabold text-2xl text-white group-hover:text-blue-400 transition-colors">${job.role}</h4>
+                            <span class="text-xs font-semibold px-3 py-1 bg-white/5 border border-white/10 text-zinc-400 rounded-full whitespace-nowrap">${job.duration}</span>
+                        </div>
+                        <p class="text-lg text-blue-500 font-medium mb-4">${job.company}</p>
+                        <div class="details mt-6 max-h-0 overflow-hidden transition-all duration-500 ease-in-out opacity-0 group-[.active]:opacity-100">
+                            <ul class="space-y-4 text-zinc-300">
+                                ${job.points.map(p => `
+                                    <li class="flex items-start">
+                                        <svg class="w-5 h-5 text-blue-500 mr-3 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        <span class="leading-relaxed text-sm">${p}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                            <div class="mt-8 pt-6 border-t border-zinc-800">
+                                <h5 class="text-xs font-bold uppercase tracking-wider text-zinc-500 mb-4">Strategic Spheres</h5>
+                                <div class="flex flex-wrap gap-2">
+                                    ${job.technologies.map(t => `<span class="bg-blue-900/20 border border-blue-500/20 text-blue-300 text-xs font-semibold px-3 py-1.5 rounded-lg">${t}</span>`).join('')}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="expand-indicator mt-6 text-center text-zinc-600 group-hover:text-zinc-400 transition-colors">
+                            <span class="text-xs font-semibold tracking-widest uppercase">Click to view impact</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            timelineItem.innerHTML = content;
+            timelineContainer.appendChild(timelineItem);
+        });
+
+        // Open the first timeline item by default
+        setTimeout(() => {
+            const firstItem = document.querySelector('.timeline-item-content');
+            if (firstItem) firstItem.click();
+        }, 100);
+
+        timelineContainer.addEventListener('click', (e) => {
+            const item = e.target.closest('.timeline-item-content');
+            if (item) {
+                const details = item.querySelector('.details');
+                const indicator = item.querySelector('.expand-indicator');
+                const allDetails = document.querySelectorAll('.details');
+                const allItems = document.querySelectorAll('.timeline-item-content');
+
+                const isOpening = !details.style.maxHeight || details.style.maxHeight === '0px';
+
+                allItems.forEach(i => {
+                    i.classList.remove('border-blue-500', 'bg-zinc-800/80', 'active');
+                    i.classList.add('border-zinc-800');
+                    const ind = i.querySelector('.expand-indicator');
+                    if(ind) ind.style.display = 'block';
+                });
+                
+                allDetails.forEach(d => {
+                    d.style.maxHeight = '0px';
+                    d.classList.remove('opacity-100');
+                    d.classList.add('opacity-0');
+                });
+
+                if (isOpening) {
+                    item.classList.add('border-blue-500', 'bg-zinc-800/80', 'active');
+                    item.classList.remove('border-zinc-800');
+                    if(indicator) indicator.style.display = 'none';
+                    details.style.maxHeight = details.scrollHeight + 100 + 'px';
+                    setTimeout(() => {
+                       details.classList.remove('opacity-0');
+                       details.classList.add('opacity-100');
+                    }, 50);
+                }
+            }
+        });
+
+        const tabsContainer = document.getElementById('tabs-container');
+        const tabsContentContainer = document.getElementById('tabs-content-container');
+        Object.keys(skillsData).forEach((category, index) => {
+            const button = document.createElement('button');
+            button.className = `tab-button text-sm font-bold py-4 px-6 border-b-2 transition-all duration-300 ${index === 0 ? 'active' : 'border-transparent text-zinc-500 hover:text-zinc-300'}`;
+            button.textContent = category;
+            button.dataset.tab = category.replace(/ & /g, '-').replace(/ /g, '-');
+            tabsContainer.appendChild(button);
+
+            const contentDiv = document.createElement('div');
+            contentDiv.id = category.replace(/ & /g, '-').replace(/ /g, '-');
+            contentDiv.className = `tab-content p-8 transition-opacity duration-300 ${index === 0 ? 'active opacity-100' : 'opacity-0'}`;
+            
+            const skillsHtml = skillsData[category].map(skill => `
+                <div class="bg-zinc-950 border border-zinc-800 shadow-inner px-4 py-3 rounded-xl flex items-center justify-center text-center">
+                    <span class="text-zinc-300 text-sm font-semibold">${skill}</span>
+                </div>
+            `).join('');
+            contentDiv.innerHTML = `<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">${skillsHtml}</div>`;
+            tabsContentContainer.appendChild(contentDiv);
+        });
+
+        tabsContainer.addEventListener('click', e => {
+            if (e.target.classList.contains('tab-button')) {
+                const tabId = e.target.dataset.tab;
+                
+                document.querySelectorAll('.tab-button').forEach(btn => {
+                    btn.classList.remove('active', 'border-blue-500', 'text-blue-500', 'bg-blue-500/10');
+                    btn.classList.add('border-transparent', 'text-zinc-500');
+                });
+                
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active', 'opacity-100');
+                    content.classList.add('opacity-0');
+                    setTimeout(() => {
+                        content.style.display = 'none';
+                    }, 300);
+                });
+
+                const clickedBtn = e.target;
+                clickedBtn.classList.remove('border-transparent', 'text-zinc-500');
+                clickedBtn.classList.add('active', 'border-blue-500', 'text-blue-500', 'bg-blue-500/10');
+
+                const targetContent = document.getElementById(tabId);
+                setTimeout(() => {
+                    targetContent.style.display = 'block';
+                    // Trigger reflow
+                    void targetContent.offsetWidth;
+                    targetContent.classList.add('active', 'opacity-100');
+                    targetContent.classList.remove('opacity-0');
+                }, 300);
+            }
+        });
+        
+        const navLinks = document.querySelectorAll('a[href^="#"]');
+        navLinks.forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
