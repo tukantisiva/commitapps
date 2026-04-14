@@ -44,7 +44,7 @@ export default function Home() {
             <a href="#services" className="w-full sm:w-auto px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-medium transition-all shadow-[0_0_40px_-10px_rgba(37,99,235,0.5)]">
               View Pricing & Services
             </a>
-            <a href="mailto:sivakumar.tukanti@gmail.com?subject=Fractional%20Architecture%20Inquiry" className="w-full sm:w-auto px-8 py-3 bg-white/5 border border-white/10 hover:bg-white/10 text-white rounded-full font-medium transition-all">
+            <a href="mailto:tsk.java@gmail.com?subject=Fractional%20Architecture%20Inquiry" className="w-full sm:w-auto px-8 py-3 bg-white/5 border border-white/10 hover:bg-white/10 text-white rounded-full font-medium transition-all">
               Email Me Directly
             </a>
           </div>
@@ -66,8 +66,7 @@ export default function Home() {
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.29 7 12 12 20.71 7"></polyline><line x1="12" y1="22" x2="12" y2="12"></line></svg>
               </div>
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">The Architecture Audit</h3>
-              <div className="text-3xl font-bold text-white mb-4">$1,500 <span className="text-sm text-zinc-500 font-normal">/ flat fee</span></div>
-              <p className="text-zinc-400 text-sm mb-6 leading-relaxed flex-grow">
+              <p className="text-zinc-400 text-sm mb-6 leading-relaxed flex-grow mt-2">
                 A weekend deep-dive into your codebase and cloud infrastructure. You receive a comprehensive PDF roadmap detailing exactly what to fix to improve scale and drastically cut your AWS costs.
               </p>
               <ul className="space-y-3 mb-8">
@@ -87,8 +86,7 @@ export default function Home() {
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
               </div>
               <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">Fractional CTO Retainer</h3>
-              <div className="text-3xl font-bold text-white mb-4">$2,500 <span className="text-sm text-zinc-500 font-normal">/ mo (10 hrs)</span></div>
-              <p className="text-zinc-400 text-sm mb-6 leading-relaxed flex-grow">
+              <p className="text-zinc-400 text-sm mb-6 leading-relaxed flex-grow mt-2">
                 I act as your senior technical leader. I review your junior developers' pull requests, handle high-level DevOps orchestration, and join weekly executive strategy calls. High impact, fractional cost.
               </p>
               <ul className="space-y-3 mb-8">
@@ -149,12 +147,12 @@ export default function Home() {
             </p>
             
             <div className="bg-zinc-950 border border-white/10 p-8 rounded-2xl max-w-md mx-auto shadow-2xl">
-              <a href="mailto:sivakumar.tukanti@gmail.com?subject=Fractional%20Architecture%20Inquiry%20from%20Commitapps" className="w-full block bg-blue-600 hover:bg-blue-500 text-white px-6 py-4 rounded-xl text-center font-bold transition-all transform hover:scale-105 shadow-[0_0_20px_-5px_rgba(37,99,235,0.4)] mb-4">
+              <a href="mailto:tsk.java@gmail.com?subject=Fractional%20Architecture%20Inquiry%20from%20Commitapps" className="w-full block bg-blue-600 hover:bg-blue-500 text-white px-6 py-4 rounded-xl text-center font-bold transition-all transform hover:scale-105 shadow-[0_0_20px_-5px_rgba(37,99,235,0.4)] mb-4">
                 Email Me Directly
               </a>
               <p className="text-sm text-zinc-500">Usually replies within 12 hours.</p>
               <div className="mt-4 pt-4 border-t border-white/10">
-                <p className="text-xs text-zinc-600 font-mono">sivakumar.tukanti@gmail.com</p>
+                <p className="text-xs text-zinc-600 font-mono">tsk.java@gmail.com</p>
               </div>
             </div>
           </div>
@@ -170,7 +168,7 @@ export default function Home() {
           <div className="flex gap-6 text-sm text-zinc-500">
             <a href="https://linkedin.com/in/sivakumartukanti" className="hover:text-zinc-300 transition-colors">LinkedIn</a>
             <a href="/sivaProfile.html" className="hover:text-zinc-300 transition-colors">Resume</a>
-            <a href="mailto:sivakumar.tukanti@gmail.com" className="hover:text-zinc-300 transition-colors">Email</a>
+            <a href="mailto:tsk.java@gmail.com" className="hover:text-zinc-300 transition-colors">Email</a>
           </div>
         </div>
       </footer>
