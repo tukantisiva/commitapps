@@ -11,7 +11,7 @@ export default function Home() {
       <header className="fixed top-0 w-full border-b border-white/5 bg-zinc-950/50 backdrop-blur-md z-50">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="font-bold text-xl tracking-tight text-white flex items-center gap-2">
-            <img src="/logo_ca_embossed.png" alt="Commitapps Logo" className="w-8 h-8 rounded-sm object-cover" />
+            <img src="/logo_ca_clean.png" alt="Commitapps Logo" className="w-8 h-8 rounded-full object-cover bg-white" />
             COMMIT<span className="text-blue-500">APPS</span>
           </div>
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
