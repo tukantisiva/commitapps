@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { getAllBlogPosts } from '@/lib/mdx';
+import Comments from '@/components/Comments';
 
 export async function generateStaticParams() {
   const posts = getAllBlogPosts();
@@ -93,6 +94,8 @@ export default async function BlogPostPage({
             Contact Us
           </a>
         </div>
+        
+        <Comments />
       </article>
     );
   } catch (error) {
