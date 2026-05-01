@@ -1,6 +1,5 @@
-import fs from 'fs';
-import path from 'path';
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
 import { getAllBlogPosts } from '@/lib/mdx';
 
 export async function generateStaticParams() {
@@ -18,32 +17,50 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  const posts = getAllBlogPosts();
+  const postMetadata = posts.find((p) => p.slug === slug);
   
+  if (!postMetadata) {
+    notFound();
+  }
+
   try {
-    const { default: Post, frontmatter } = await import(`@/content/blog/${slug}.mdx`);
+    const { default: Post } = await import(`@/content/blog/${slug}.mdx`);
 
     return (
-      <article className="max-w-3xl mx-auto px-6 py-16 min-h-screen">
-        <header className="mb-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white mb-6">
-            {/* The title is usually in frontmatter, but if not, the MDX might have an h1. We'll let the MDX render its own H1 if we just output <Post /> */}
-            {/* Actually, for standard styling, we can let MDX handle the body and we handle the container. */}
+      <article className="max-w-2xl mx-auto px-6 py-20 min-h-screen font-sans selection:bg-blue-200 dark:selection:bg-blue-900">
+        <Link href="/blog" className="text-sm font-medium text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors flex items-center gap-2 mb-12">
+          ← Back to Blog
+        </Link>
+        
+        <header className="mb-14">
+          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-50 mb-6 leading-snug">
+            {postMetadata.title}
           </h1>
-          <div className="flex items-center justify-center gap-x-4 text-sm text-gray-500 dark:text-gray-400">
-            {/* If we want to show date here from frontmatter, we'd need to parse it or export it. */}
+          <div className="flex items-center gap-x-3 text-sm text-gray-500 dark:text-gray-400 font-medium">
+            <time dateTime={postMetadata.date}>
+              {new Date(postMetadata.date).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </time>
+            <span>•</span>
+            <span>{postMetadata.author}</span>
           </div>
         </header>
 
-        <div className="prose prose-lg dark:prose-invert max-w-none">
+        {/* The typography plugin makes standard HTML tags look beautiful */}
+        <div className="prose prose-zinc prose-lg dark:prose-invert prose-headings:font-semibold prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl max-w-none prose-p:leading-relaxed">
           <Post />
         </div>
         
-        <hr className="my-12 border-gray-200 dark:border-gray-800" />
+        <hr className="my-16 border-gray-200 dark:border-gray-800" />
         
-        <div className="bg-gray-50 dark:bg-gray-900/50 rounded-2xl p-8 border border-gray-100 dark:border-gray-800 text-center">
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Need help scaling your Next.js application?</h3>
-          <p className="text-gray-600 dark:text-gray-400 mb-6">Book a technical audit with Commitapps and let us help you build faster, more resilient software.</p>
-          <a href="mailto:contact@commitapp.com" className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-colors">
+        <div className="bg-zinc-50 dark:bg-zinc-900/40 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800 text-center shadow-sm">
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Build faster with Commitapps.</h3>
+          <p className="text-gray-600 dark:text-gray-400 mb-6 text-sm">We help scale modern architectures. Let's work together on your next MVP.</p>
+          <a href="mailto:contact@commitapp.com" className="inline-flex items-center justify-center rounded-full bg-zinc-900 dark:bg-white px-6 py-2.5 text-sm font-medium text-white dark:text-zinc-900 hover:bg-zinc-800 dark:hover:bg-zinc-100 transition-colors">
             Contact Us
           </a>
         </div>
