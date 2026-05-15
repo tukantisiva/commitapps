@@ -17,6 +17,8 @@ export default function Home() {
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
             <a href="#services" className="hover:text-white transition-colors">Advisory Offerings</a>
             <a href="#about" className="hover:text-white transition-colors">The Architect</a>
+            <a href="/blog" className="hover:text-white transition-colors">Blog</a>
+            <a href="/dashboard" className="hover:text-white transition-colors flex items-center gap-1"><span className="text-orange-500 font-bold">AI</span> Dashboard</a>
           </nav>
           <a href="#contact" className="bg-white text-black px-4 py-2 rounded-full text-sm font-semibold hover:bg-zinc-200 transition-colors">
             Hire Me
@@ -168,6 +170,8 @@ export default function Home() {
           <div className="flex gap-6 text-sm text-zinc-500">
             <a href="https://linkedin.com/in/sivakumartukanti" className="hover:text-zinc-300 transition-colors">LinkedIn</a>
             <a href="/sivaProfile.html" className="hover:text-zinc-300 transition-colors">Resume</a>
+            <a href="/blog" className="hover:text-zinc-300 transition-colors">Blog</a>
+            <a href="/dashboard" className="hover:text-zinc-300 transition-colors">Dashboard</a>
             <a href="mailto:tsk.java@gmail.com" className="hover:text-zinc-300 transition-colors">Email</a>
           </div>
         </div>

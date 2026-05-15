@@ -10,6 +10,7 @@ export type BlogPostMetadata = {
   date: string;
   excerpt: string;
   author: string;
+  draft?: boolean;
 };
 
 export function getAllBlogPosts(): BlogPostMetadata[] {
@@ -32,7 +33,15 @@ export function getAllBlogPosts(): BlogPostMetadata[] {
         date: data.date || '1970-01-01',
         excerpt: data.excerpt || '',
         author: data.author || 'Anonymous',
+        draft: data.draft === true || data.draft === 'true',
       } as BlogPostMetadata;
+    })
+    // Filter out drafts in production builds, but show them in local development
+    .filter((post) => {
+      if (process.env.NODE_ENV === 'production') {
+        return !post.draft;
+      }
+      return true;
     })
     .sort((a, b) => (new Date(b.date).getTime() - new Date(a.date).getTime()));
 
