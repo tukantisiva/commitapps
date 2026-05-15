@@ -24,7 +24,7 @@ export default function AllocationChart({ data }: { data: AssetAllocation[] }) {
               ))}
             </Pie>
             <Tooltip 
-              formatter={(value: number) => [`${value}%`, 'Allocation']}
+              formatter={(value: any) => [`${value}%`, 'Allocation']}
               contentStyle={{ backgroundColor: '#18181b', borderColor: '#27272a', borderRadius: '8px', color: '#f4f4f5' }}
               itemStyle={{ color: '#f4f4f5' }}
             />
